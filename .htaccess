@@ -18,13 +18,16 @@ RewriteRule ^.*$ backend/web/index.php [L]
 # ===================== admin =====================
 RewriteCond %{REQUEST_URI} ^/(admin)
 RewriteRule ^admin/assets/(.*)$ admin/web/assets/$1 [L]
+# Tambah Template *templatenya ada di frontend
+RewriteRule ^admin/assetsTemplate/(.*)$ frontend/web/assetsTemplate/$1 [L]
+# End Tambah Template
 RewriteRule ^admin/css/(.*)$ admin/web/css/$1 [L]
 RewriteRule ^admin/images/(.*)$ admin/web/images/$1 [L]
 RewriteRule ^admin/js/(.*)$ admin/web/js/$1 [L]
 RewriteRule ^admin/fonts/(.*)$ frontend/web/fonts/$1 [L]
 RewriteRule ^admin/icon/(.*)$ frontend/web/icon/$1 [L]
 
-RewriteCond %{REQUEST_URI} !^/admin/web/(assets|css|images|js|fonts|icon)/
+RewriteCond %{REQUEST_URI} !^/admin/web/(assets|assetsTemplate|css|images|js|fonts|icon)/
 RewriteCond %{REQUEST_URI} ^/(admin)
 RewriteRule ^.*$ admin/web/index.php [L]
 # ===================== end admin =====================
@@ -33,13 +36,18 @@ RewriteRule ^.*$ admin/web/index.php [L]
 # ===================== frontend =====================
 RewriteCond %{REQUEST_URI} ^/(assets|css)
 RewriteRule ^assets/(.*)$ frontend/web/assets/$1 [L]
+# Tambah Template *letak templatenya
+RewriteRule ^assetsTemplate/(.*)$ frontend/web/assetsTemplate/$1 [L]
+# End Tambah Template
 RewriteRule ^css/(.*)$ frontend/web/css/$1 [L]
 RewriteRule ^js/(.*)$ frontend/web/js/$1 [L]
 RewriteRule ^images/(.*)$ frontend/web/images/$1 [L]
 RewriteRule ^fonts/(.*)$ frontend/web/fonts/$1 [L]
 RewriteRule ^icon/(.*)$ frontend/web/icon/$1 [L]
 
-RewriteCond %{REQUEST_URI} !^/(frontend|backend|admin)/web/(assets|css|images|js|fonts|icon)/
+# Tambahkan juga templatenya disini (assetsTemplate)
+RewriteCond %{REQUEST_URI} !^/(frontend|backend|admin)/web/(assets|assetsTemplate|css|images|js|fonts|icon)/
+
 RewriteCond %{REQUEST_URI} !index.php
 RewriteCond %{REQUEST_FILENAME} !-f [OR]
 RewriteCond %{REQUEST_FILENAME} !-d
