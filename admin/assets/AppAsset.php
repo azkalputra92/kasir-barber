@@ -32,7 +32,9 @@ class AppAsset extends AssetBundle
 
     ];
     public $js = [
+
         'assetsTemplate/js/bootstrap/bootstrap.bundle.min.js',
+        // Toggle Button
         'assetsTemplate/js/icons/feather-icon/feather.min.js',
         'assetsTemplate/js/icons/feather-icon/feather-icon.js',
         // Scrollbar js

@@ -29,7 +29,7 @@ AppAsset::register($this);
     <?php $this->beginBody() ?>
 
     <!-- loader starts-->
-    <!-- <div class=" loader-wrapper">
+    <div class=" loader-wrapper">
         <div class="loader-index"><span></span></div>
         <svg>
             <defs></defs>
@@ -38,7 +38,7 @@ AppAsset::register($this);
                 <fecolormatrix in="blur" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo"></fecolormatrix>
             </filter>
         </svg>
-    </div> -->
+    </div>
     <!-- loader ends -->
 
     <!-- tap on top starts-->
@@ -103,10 +103,18 @@ AppAsset::register($this);
                             </div>
                             <ul class="profile-dropdown onhover-show-div">
 
-                                <li>
-                                    <form action="../site/logout">
+                                <li class="sidebar-list">
+                                    <?php
+                                    echo Html::beginForm(['/site/logout'], 'post', ['class' => '']);
+                                    echo Html::submitButton(
+                                        '<i class = "fas fa-sign-out-alt"></i>Logout',
+                                        ['class' => 'btn btn-outline-primary ']
+                                    );
+                                    echo Html::endForm();
+                                    ?>
+                                    <!-- <form action="../site/logout">
                                         <a type="submit"><i data-feather="log-in"> </i><span>Log Out</span></a>
-                                    </form>
+                                    </form> -->
                                 </li>
                             </ul>
                         </li>
@@ -177,47 +185,60 @@ AppAsset::register($this);
                                     </div>
                                 </li>
                                 <li class="sidebar-list">
-                                    <a class="sidebar-link" href="../site/index">
+                                    <?= html::a(
+                                        '<svg class="stroke-icon">
+                                            <use href="../assetsTemplate/svg/icon-sprite.svg#stroke-home"></use>
+                                        </svg>
+                                        <svg class="fill-icon">
+                                            <use href="../assetsTemplate/svg/icon-sprite.svg#fill-home"></use>
+                                        </svg><span class="lan-3">Dashboard </span>',
+                                        ['/site/index'],
+                                        ['class' => 'sidebar-link']
+                                    ) ?>
+                                    <!-- <a class="sidebar-link" href="../site/index">
                                         <svg class="stroke-icon">
                                             <use href="../assetsTemplate/svg/icon-sprite.svg#stroke-home"></use>
                                         </svg>
                                         <svg class="fill-icon">
                                             <use href="../assetsTemplate/svg/icon-sprite.svg#fill-home"></use>
-                                        </svg><span class="lan-3">Dashboard </span></a>
+                                        </svg><span class="lan-3">Dashboard </span></a> -->
 
                                 </li>
 
                                 <li class="sidebar-list">
-                                    <a class="sidebar-link " href="siswa/index">
-                                        <svg class="stroke-icon">
+                                    <?= html::a(
+                                        '<svg class="stroke-icon">
                                             <use href="../assetsTemplate/svg/icon-sprite.svg#stroke-widget"></use>
                                         </svg>
                                         <svg class="fill-icon">
                                             <use href="../assetsTemplate/svg/icon-sprite.svg#fill-widget"></use>
-                                        </svg><span>Siswa</span></a>
+                                        </svg><span>Siswa</span>',
+                                        ['/siswa/index'],
+                                        ['class' => 'sidebar-link']
+                                    ) ?>
+
 
                                 </li>
 
 
-
                                 <li class="sidebar-list">
-                                    <?php
-                                    if (Yii::$app->user->isGuest) {
-                                        echo html::a(
-                                            'Login',
-                                            ['site/login']
-                                        );
-                                    } else {
-
-
+                                    <a class="sidebar-link">
+                                        <?php
                                         echo Html::beginForm(['/site/logout'], 'post', ['class' => 'sidebar-link']);
                                         echo Html::submitButton(
-                                            'Logout (' . Yii::$app->user->identity->username . ')',
-                                            ['class' => 'btn btn-outline-primary sidebar-link logout']
+                                            '<i class = "fas fa-sign-out-alt "></i> Logout (' . Yii::$app->user->identity->username . ')',
+                                            //     '<svg class="stroke-icon">
+                                            //     <use href="../assetsTemplate/svg/icon-sprite.svg#stroke-home"></use>
+                                            // </svg>
+                                            // <svg class="fill-icon">
+                                            //     <use href="../assetsTemplate/svg/icon-sprite.svg#fill-home"></use>
+                                            // </svg><span>Logout </span>',
+                                            ['class' => 'btn btn-outline-primary ']
                                         );
                                         echo Html::endForm();
-                                    } ?>
+                                        ?>
 
+                                    </a>
 
                                 </li>
 
