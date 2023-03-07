@@ -27,6 +27,7 @@ RewriteRule ^admin/js/(.*)$ admin/web/js/$1 [L]
 RewriteRule ^admin/fonts/(.*)$ frontend/web/fonts/$1 [L]
 RewriteRule ^admin/icon/(.*)$ frontend/web/icon/$1 [L]
 
+# Tambahkan juga templatenya disini (assetsTemplate)
 RewriteCond %{REQUEST_URI} !^/admin/web/(assets|assetsTemplate|css|images|js|fonts|icon)/
 RewriteCond %{REQUEST_URI} ^/(admin)
 RewriteRule ^.*$ admin/web/index.php [L]
