@@ -56,6 +56,7 @@ return [
         'class' => 'mdm\admin\components\AccessControl',
         // 'class' => AccessControl::class,
         'allowActions' => [
+            '*',
             'gii/*',
             'site/*',
             'debug/*',
