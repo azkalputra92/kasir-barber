@@ -1,13 +1,20 @@
 <?php
+/**
+ * @link https://www.yiiframework.com/
+ * @copyright Copyright (c) 2008 Yii Software LLC
+ * @license https://www.yiiframework.com/license/
+ */
 
-use yii\db\Migration;
 use yii\base\InvalidConfigException;
 use yii\rbac\DbManager;
 
 /**
- * Class m230305_010206_rbac_init
+ * Initializes RBAC tables.
+ *
+ * @author Alexander Kochetov <creocoder@gmail.com>
+ * @since 2.0
  */
-class m230305_010206_rbac_init extends Migration
+class m140506_102106_rbac_init extends \yii\db\Migration
 {
     /**
      * @throws yii\base\InvalidConfigException
@@ -33,7 +40,7 @@ class m230305_010206_rbac_init extends Migration
 
     protected function isOracle()
     {
-        return $this->db->driverName === 'oci';
+        return $this->db->driverName === 'oci' || $this->db->driverName === 'oci8';
     }
 
     /**
@@ -47,7 +54,7 @@ class m230305_010206_rbac_init extends Migration
 
         $tableOptions = null;
         if ($this->db->driverName === 'mysql') {
-            // http://stackoverflow.com/questions/766809/whats-the-difference-between-utf8-general-ci-and-utf8-unicode-ci
+            // https://stackoverflow.com/questions/766809/whats-the-difference-between-utf8-general-ci-and-utf8-unicode-ci
             $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB';
         }
 
@@ -137,9 +144,10 @@ class m230305_010206_rbac_init extends Migration
     {
         $authManager = $this->getAuthManager();
         $this->db = $authManager->db;
+        $schema = $this->db->getSchema()->defaultSchema;
 
         if ($this->isMSSQL()) {
-            $this->execute('DROP TRIGGER {$schema}.trigger_auth_item_child;');
+            $this->execute("DROP TRIGGER {$schema}.trigger_auth_item_child;");
         }
 
         $this->dropTable($authManager->assignmentTable);
