@@ -17,20 +17,23 @@ return [
     // ],
     [
         'class' => '\kartik\grid\DataColumn',
-        'attribute' => 'nis',
+        'header' => '<b>Nis</b>',
+        'value' => 'nis',
     ],
     [
         'class' => '\kartik\grid\DataColumn',
-        'attribute' => 'nama',
+        'header' => '<b>Nama</b>',
+        'value' => 'nama',
     ],
     [
         'class' => '\kartik\grid\DataColumn',
-        'attribute' => 'alamat',
+        'header' => '<b>Alamat</b>',
+        'value' => 'alamat',
     ],
-    [
-        'class' => '\kartik\grid\DataColumn',
-        'attribute' => 'id_user',
-    ],
+    // [
+    //     'class' => '\kartik\grid\DataColumn',
+    //     'attribute' => 'id_user',
+    // ],
     [
         'class' => 'kartik\grid\ActionColumn',
         'dropdown' => false,

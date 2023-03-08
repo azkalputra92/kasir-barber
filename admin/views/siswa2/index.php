@@ -24,36 +24,45 @@ CrudAsset::register($this);
             'id' => 'crud-datatable',
             'dataProvider' => $dataProvider,
             'filterModel' => $searchModel,
-            'summary' => "Menampilkan {begin} - {end} dari {totalCount} hasil",
+
+            'summary' => "Menampilkan <b>{begin}</b> - <b>{end}</b> dari <b>{totalCount}</b> hasil",
+            'summaryOptions' => ['class' => 'summary'],
+
             'pager' => [
+
+
+                'firstPageLabel' => 'Previous',
+                'lastPageLabel'  => 'Next',
+                // 'options'       =>  [
+                //     'class' => 'float-end'
+                // ]
                 'class' => LinkPager::class
             ],
+
             'pjax' => true,
+
             'columns' => require(__DIR__ . '/_columns.php'),
             'toolbar' => [
                 [
                     'content' =>
-                    Html::a(
-                        '<i class="fas fa fa-plus" aria-hidden="true"></i>',
-                        ['create'],
-                        ['role' => 'modal-remote', 'title' => 'Tambah Siswas', 'class' => 'btn btn-default']
-                    ) .
-                        Html::a(
-                            '<i class="fas fa fa-sync" aria-hidden="true"></i>',
-                            [''],
-                            ['data-pjax' => 1, 'class' => 'btn btn-default', 'title' => 'Reset Grid']
-                        ) .
-                        '{toggleData}' .
-                        '{export}'
+                    ''
                 ],
             ],
-            'striped' => true,
-            'condensed' => true,
+            'striped' => false,
+            'condensed' => false,
             'responsive' => true,
+            // 'tableOptions' => ['class' => 'table table-hover'],
             'panel' => [
                 'type' => '',
-                'heading' => '<b>Daftar Client</b>',
-                'before' => '<em>* Resize kolom table  serte kolom kanan dan kiri.</em>',
+                'heading' => '<b>Daftar Client</b>' .  Html::a(
+                    '<i class="fas fa fa-plus" aria-hidden="true"></i> Client Baru',
+                    ['create'],
+                    ['role' => 'modal-remote', 'title' => 'Tambah Siswas', 'class' => 'btn btn-info']
+                ),
+                'before' => '<div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Cari Nama Client..." aria-label="Recipients username" aria-describedby="button-addon2">
+                                <button class="btn btn-outline-primary" type="button" id="button-addon2"><i class="fas fa-search"></i> Pencarian</button>
+                            </div>',
                 // 'after' => BulkButtonWidget::widget([
                 //     'buttons' => Html::a(
                 //         '<i class="fas fa fa-trash" aria-hidden="true"></i>&nbsp; Hapus semua',
@@ -69,6 +78,8 @@ CrudAsset::register($this);
                 //     ),
                 // ]) .
                 //     '<div class="clearfix"></div>',
+
+                'after' => '{summary}',
 
             ]
         ]) ?>

@@ -11,3 +11,92 @@
   display: flex;
   justify-content: end;
 }
+
+.card-header .float-end {
+  display: none;
+}
+
+.kv-panel-after .float-end {
+  float: left !important;
+}
+
+.card-header .btn-info {
+  float: right;
+  background-color: #34a1da !important;
+  border-color: #34a1da !important;
+}
+
+/* .card-footer .kv-panel-pager .active {
+  background: #34a1da !important;
+} */
+
+.page-item.active .page-link {
+  z-index: 3;
+  color: #fff;
+  background-color: #34a1da !important;
+  border-color: #34a1da !important;
+}
+
+.page-item .page-link {
+  z-index: 3;
+  color: #34a1da;
+}
+
+.page-item.last .page-link {
+  color: #34a1da !important;
+}
+
+a.sidebar-link.active {
+  background-color: rgba(25, 95, 160, 0.07) !important;
+}
+.page-wrapper
+  .page-body-wrapper
+  div.sidebar-wrapper
+  .sidebar-main
+  .sidebar-links
+  .simplebar-wrapper
+  .simplebar-mask
+  .simplebar-content-wrapper
+  .simplebar-content
+  > li
+  a.active
+  svg.stroke-icon {
+  stroke: #34a1da !important;
+}
+a.sidebar-link.active span {
+  color: #34a1da !important;
+}
+
+.page-wrapper.compact-wrapper
+  .page-body-wrapper
+  div.sidebar-wrapper
+  .sidebar-main
+  .sidebar-links
+  .simplebar-wrapper
+  .simplebar-mask
+  .simplebar-content-wrapper
+  .simplebar-content
+  > li
+  .sidebar-link::after {
+  background-color: #34a1da !important;
+}
+
+.btn.btn-outline-primary {
+  border-color: #34a1da !important;
+  color: #34a1da !important;
+}
+
+button.btn.btn-primary {
+  background-color: #34a1da !important;
+}
+
+button.btn-outline-primary:hover {
+  color: white !important;
+  background-color: #17a2b8 !important;
+  border-color: #17a2b8 !important;
+}
+button.btn-outline-primary:focus {
+  color: #34a1da !important;
+  background-color: #fff !important;
+  border-color: #34a1da !important;
+}

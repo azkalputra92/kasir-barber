@@ -107,7 +107,7 @@ AppAsset::register($this);
                                     <?php
                                     echo Html::beginForm(['/site/logout'], 'post', ['class' => '']);
                                     echo Html::submitButton(
-                                        '<i class = "fas fa-sign-out-alt"></i>Logout',
+                                        'Logout',
                                         ['class' => 'btn btn-outline-primary ']
                                     );
                                     echo Html::endForm();
