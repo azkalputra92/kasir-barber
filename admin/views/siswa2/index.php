@@ -26,7 +26,7 @@ CrudAsset::register($this);
             'filterModel' => $searchModel,
 
             'summary' => "Menampilkan <b>{begin}</b> - <b>{end}</b> dari <b>{totalCount}</b> hasil",
-            'summaryOptions' => ['class' => 'summary'],
+            'summaryOptions' => ['class' => 'd-none'],
 
             'pager' => [
 
@@ -36,7 +36,7 @@ CrudAsset::register($this);
                 // 'options'       =>  [
                 //     'class' => 'float-end'
                 // ]
-                'class' => LinkPager::class
+                // 'class' => LinkPager::class
             ],
 
             'pjax' => true,
@@ -49,11 +49,13 @@ CrudAsset::register($this);
                 ],
             ],
             'striped' => false,
-            'condensed' => false,
+            'condensed' => true,
             'responsive' => true,
             // 'tableOptions' => ['class' => 'table table-hover'],
             'panel' => [
                 'type' => '',
+                'footer' => false,
+
                 'heading' => '<b>Daftar Client</b>' .  Html::a(
                     '<i class="fas fa fa-plus" aria-hidden="true"></i> Client Baru',
                     ['create'],
@@ -79,7 +81,9 @@ CrudAsset::register($this);
                 // ]) .
                 //     '<div class="clearfix"></div>',
 
-                'after' => '{summary}',
+                'after' => '<br><div class="d-flex justify-content-between">{summary}{pager} </div>',
+
+                // 'footer' => '<div class="d-flex justify-content-between">{summary}{pager} </div>',
 
             ]
         ]) ?>

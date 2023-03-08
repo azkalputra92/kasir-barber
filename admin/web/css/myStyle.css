@@ -100,3 +100,7 @@ button.btn-outline-primary:focus {
   background-color: #fff !important;
   border-color: #34a1da !important;
 }
+
+tr#crud-datatable-filters.filters.skip-export {
+  display: none !important;
+}
