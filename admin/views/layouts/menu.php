@@ -63,22 +63,42 @@
 
 
      <li class="sidebar-list">
-         <a class="sidebar-link">
+
+
+         <?php if (Yii::$app->user->isGuest) { ?>
              <?php
-                echo Html::beginForm(['/site/logout'], 'post', ['class' => 'sidebar-link']);
-                echo Html::submitButton(
-                    '<i class = "fas fa-sign-out-alt "></i> Logout (' . Yii::$app->user->identity->username . ')',
+                echo Html::a(
+                    '<i class = "fas fa-sign-out-alt "></i> Login',
+                    ['/site/login'],
                     //     '<svg class="stroke-icon">
                     //     <use href="../assetsTemplate/svg/icon-sprite.svg#stroke-home"></use>
                     // </svg>
                     // <svg class="fill-icon">
                     //     <use href="../assetsTemplate/svg/icon-sprite.svg#fill-home"></use>
                     // </svg><span>Logout </span>',
-                    ['class' => 'btn btn-outline-primary ']
+                    ['class' => 'sidebar-link']
                 );
-                echo Html::endForm();
+
                 ?>
-         </a>
+         <?php  } else { ?>
+             <a class="sidebar-link">
+                 <?php
+                    echo Html::beginForm(['/site/logout'], 'post', ['class' => 'sidebar-link']);
+                    echo Html::submitButton(
+                        '<i class = "fas fa-sign-out-alt "></i> Logout (' . Yii::$app->user->identity->username . ')',
+                        //     '<svg class="stroke-icon">
+                        //     <use href="../assetsTemplate/svg/icon-sprite.svg#stroke-home"></use>
+                        // </svg>
+                        // <svg class="fill-icon">
+                        //     <use href="../assetsTemplate/svg/icon-sprite.svg#fill-home"></use>
+                        // </svg><span>Logout </span>',
+                        ['class' => 'btn btn-outline-primary ']
+                    );
+                    echo Html::endForm();
+                    ?>
+             <?php } ?>
+
+             </a>
 
      </li>
 

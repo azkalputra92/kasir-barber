@@ -10,9 +10,7 @@ return [
     // ],
     [
         'class' => 'kartik\grid\SerialColumn',
-        'header' => '<b>No</b>',
         'width' => '30px',
-        // 'height' => '100px'
     ],
     // [
     // 'class'=>'\kartik\grid\DataColumn',
@@ -20,14 +18,20 @@ return [
     // ],
     [
         'class' => '\kartik\grid\DataColumn',
-        // 'header' => '<b>Nis</b>',
-        // 'value' => 'nis',
-        'attribute' => 'nis'
+        'header' => '<b>Nis</b>',
+        'value' => 'nis',
+        // 'options' => []
     ],
     [
         'class' => '\kartik\grid\DataColumn',
         'header' => '<b>Nama</b>',
         'value' => 'nama',
+        'contentOptions' => [
+            'style' => [
+                'width:30px',
+                'font-size : 500px'
+            ]
+        ], // For TD
     ],
     [
         'class' => '\kartik\grid\DataColumn',
@@ -38,7 +42,6 @@ return [
     //     'class' => '\kartik\grid\DataColumn',
     //     'attribute' => 'id_user',
     // ],
-
 
     [
 

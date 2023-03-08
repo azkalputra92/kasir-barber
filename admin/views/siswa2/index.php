@@ -23,10 +23,9 @@ CrudAsset::register($this);
         <?= GridView::widget([
             'id' => 'crud-datatable',
             'dataProvider' => $dataProvider,
-            'filterModel' => $searchModel,
+            'filterModel' => null,
 
             'summary' => "Menampilkan <b>{begin}</b> - <b>{end}</b> dari <b>{totalCount}</b> hasil",
-            'summaryOptions' => ['class' => 'd-none'],
 
             'pager' => [
 
@@ -45,13 +44,13 @@ CrudAsset::register($this);
             'toolbar' => [
                 [
                     'content' =>
-                    ''
+                    '<hr>'
                 ],
             ],
             'striped' => false,
             'condensed' => true,
             'responsive' => true,
-            // 'tableOptions' => ['class' => 'table table-hover'],
+            // 'tableOptions' => ['class' => 'table table-hover table-lg'],
             'panel' => [
                 'type' => '',
                 'footer' => false,
@@ -61,10 +60,23 @@ CrudAsset::register($this);
                     ['create'],
                     ['role' => 'modal-remote', 'title' => 'Tambah Siswas', 'class' => 'btn btn-info']
                 ),
-                'before' => '<div class="input-group mb-3">
-                                <input type="text" class="form-control" placeholder="Cari Nama Client..." aria-label="Recipients username" aria-describedby="button-addon2">
-                                <button class="btn btn-outline-primary" type="button" id="button-addon2"><i class="fas fa-search"></i> Pencarian</button>
-                            </div>',
+                // 'before' => '<div class="input-group mb-3">
+                //                 <input type="text" class="form-control" placeholder="Cari Nama Client..." aria-label="Recipients username" aria-describedby="button-addon2">
+                //                 <button class="btn btn-outline-primary" type="button" id="button-addon2"><i class="fas fa-search"></i> Pencarian</button>
+                //             </div>',
+                'before' =>
+
+                Html::beginForm(['/siswa2/index'], 'GET', ['class' => 'form-inline']) .
+                    '<div class="input-group mb-3">' .
+                    Html::input('text', 'Siswa2Search[cari]', '', ['class' => 'form-control', 'placeholder' => 'Cari Nama Jasa...']) .
+                    Html::submitButton(
+                        '<i class="fas fa-search"></i> Pencarian',
+                        [
+                            'data-pjax' => 1,
+                            'class' => 'btn btn-outline-primary'
+                        ]
+                    ) . '</div>'
+                    . Html::endForm(),
                 // 'after' => BulkButtonWidget::widget([
                 //     'buttons' => Html::a(
                 //         '<i class="fas fa fa-trash" aria-hidden="true"></i>&nbsp; Hapus semua',

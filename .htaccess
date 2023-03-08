@@ -52,6 +52,6 @@ RewriteCond %{REQUEST_URI} !^/(frontend|backend|admin)/web/(assets|assetsTemplat
 RewriteCond %{REQUEST_URI} !index.php
 RewriteCond %{REQUEST_FILENAME} !-f [OR]
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^.*$ admin/web/index.php
+RewriteRule ^.*$ admin/site/index.php
 
 # ===================== end frontend =====================

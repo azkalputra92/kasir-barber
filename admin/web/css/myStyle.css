@@ -100,7 +100,17 @@ button.btn-outline-primary:focus {
   background-color: #fff !important;
   border-color: #34a1da !important;
 }
-
+/* 
 tr#crud-datatable-filters.filters.skip-export {
   display: none !important;
-}
+} */
+
+/* .table-bordered > thead.kv-table-header > tr,
+.table-bordered > thead.kv-table-header > tr > th,
+.table-bordered > thead.kv-table-header > tr > td,
+.kv-table-header > tr,
+.kv-table-header > tr > th,
+.kv-table-header > tr > td {
+  background-color: #f5f5f5 !important;
+  height: 88px !important;
+} */

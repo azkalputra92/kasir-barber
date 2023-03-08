@@ -12,6 +12,7 @@ use common\models\Siswa;
  */
 class Siswa2Search extends Siswa
 {
+    public $cari;
     /**
      * @inheritdoc
      */
@@ -19,7 +20,7 @@ class Siswa2Search extends Siswa
     {
         return [
             [['id', 'id_user'], 'integer'],
-            [['nis', 'nama', 'alamat'], 'safe'],
+            [['nis', 'nama', 'alamat', 'cari'], 'safe'],
         ];
     }
 
@@ -63,9 +64,10 @@ class Siswa2Search extends Siswa
             'id_user' => $this->id_user,
         ]);
 
-        $query->andFilterWhere(['like', 'nis', $this->nis])
-            ->andFilterWhere(['like', 'nama', $this->nama])
-            ->andFilterWhere(['like', 'alamat', $this->alamat]);
+        $query->andFilterWhere([
+            'or',
+            ['like', 'nis', $this->cari], ['like', 'nama', $this->cari], ['like', 'alamat', $this->cari]
+        ]);
 
         return $dataProvider;
     }
