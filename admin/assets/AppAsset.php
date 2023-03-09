@@ -14,7 +14,7 @@ class AppAsset extends AssetBundle
     public $css = [
         'css/site.css',
         'css/myStyle.css',
-        'assetsTemplate/css/font-awesome.css',
+        'assetsTemplate/css/p\-awesome.css',
         'assetsTemplate/css/vendors/icofont.css',
         'assetsTemplate/css/vendors/themify.css',
         'assetsTemplate/css/vendors/flag-icon.css',
