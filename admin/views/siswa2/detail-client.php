@@ -20,8 +20,8 @@ CrudAsset::register($this);
 <div class="siswa-index">
   <div class="mb-4">
     <a href='/admin/siswa2/index' class="link-dark">
-      <h5><span class="material-symbols-outlined align-middle">arrow_back</span> <span
-          class="align-middle">Kembali</span></h5>
+      <h6><span class="material-symbols-outlined align-middle">arrow_back</span> <span
+          class="align-middle">Kembali</span></h6>
     </a>
   </div>
   <div class="row">
@@ -115,7 +115,7 @@ CrudAsset::register($this);
                     . Html::endForm(),
 
                 'after' => '<br><div class="d-flex justify-content-between">{summary}{pager} </div>',
-            ]
+                        ],
         ]) ?>
         </div>
       </div>
