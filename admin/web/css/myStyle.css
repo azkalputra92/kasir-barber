@@ -114,3 +114,8 @@ tr#crud-datatable-filters.filters.skip-export {
   background-color: #f5f5f5 !important;
   height: 88px !important;
 } */
+
+.icon-more-alt:before {
+  content: "\e6e2";
+  color: #34a1da !important;
+}

@@ -8,6 +8,24 @@ return [
     //     'class' => 'kartik\grid\CheckboxColumn',
     //     'width' => '20px',
     // ],
+
+    [
+        'class' => 'kartik\grid\ActionColumn',
+        'header' => 'Akun',
+        'template' => '{btn_aksi}',
+        'buttons' => [
+            "btn_aksi" => function ($url, $model, $key) {
+                return Html::a('<i class="icon-more-alt"></i>', ['view', 'id' => $model->id], [
+                    'class' => 'btn btn-square btn-light btn-air-light btn-sm',
+                    'role' => 'modal-remote',
+                    'title' => 'Lihat',
+                    'data-toggle' => 'tooltip'
+                ]);
+            },
+
+        ]
+    ],
+
     [
         'class' => 'kartik\grid\SerialColumn',
         'width' => '30px',
@@ -44,19 +62,43 @@ return [
     // ],
 
     [
-
         'class' => 'kartik\grid\ActionColumn',
         'header' => 'Akun',
         'template' => '{btn_aksi}',
         'buttons' => [
             "btn_aksi" => function ($url, $model, $key) {
-                return Html::a('Buat Akun', ['buat-akun', 'id' => $model->id], [
-                    'class' => 'btn btn-primary',
+                return Html::a('<i class="icon-more-alt"></i>', ['view', 'id' => $model->id], [
+                    'class' => 'btn btn-square btn-light btn-air-light btn-sm',
                     'role' => 'modal-remote',
                     'title' => 'Lihat',
                     'data-toggle' => 'tooltip'
                 ]);
             },
+
+        ]
+    ],
+
+    [
+        'class' => 'kartik\grid\ActionColumn',
+        'header' => 'Akun',
+        'template' => '{edit} {delete}',
+        'buttons' => [
+            "edit" => function ($url, $model, $key) {
+                return Html::a('<i class="icon-more-alt"></i>', ['view', 'id' => $model->id], [
+                    'class' => 'btn btn-square btn-light btn-air-light btn-sm',
+                    'role' => 'modal-remote',
+                    'title' => 'Lihat',
+                    'data-toggle' => 'tooltip'
+                ]);
+            },
+            "delete" => function ($url, $model, $key) {
+                return Html::a('<i class="icon-more-alt"></i>', ['view', 'id' => $model->id], [
+                    'class' => 'btn btn-square btn-light btn-air-light btn-sm',
+                    'role' => 'modal-remote',
+                    'title' => 'Lihat',
+                    'data-toggle' => 'tooltip'
+                ]);
+            }
 
         ]
     ],

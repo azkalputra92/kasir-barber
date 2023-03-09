@@ -95,8 +95,11 @@ AppAsset::register($this);
                             <div class="media profile-media">
                                 <img class="b-r-10" src="../assetsTemplate/images/dashboard/profile.png" alt="" />
                                 <div class="media-body">
-                                    <span><?php // Yii::$app->user->identity->username 
-                                            ?></span>
+                                    <span><?php if (Yii::$app->user->isGuest) {
+                                                echo 'user';
+                                            } else {
+                                                echo Yii::$app->user->identity->username;
+                                            }  ?></span>
                                     <p class="mb-0 font-roboto">
                                         Admin <i class="middle fa fa-angle-down"></i>
                                     </p>

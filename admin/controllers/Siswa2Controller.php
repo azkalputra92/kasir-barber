@@ -48,15 +48,27 @@ class Siswa2Controller extends Controller
      */
     public function actionIndex()
     {
+        $request = Yii::$app->request;
         $searchModel = new Siswa2Search();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
+        if ($request->isAjax) {
+            Yii::$app->response->format = Response::FORMAT_JSON;
+            if ($searchModel->load($request->post())) {
+                return [
+                    'forceClose' => true,
+                    'forceReload' => '#crud-datatable-pjax',
 
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+                ];
+            }
+        } else {
 
-        ]);
+            return $this->render('index', [
+                'searchModel' => $searchModel,
+                'dataProvider' => $dataProvider,
+
+            ]);
+        }
     }
 
 
@@ -70,14 +82,16 @@ class Siswa2Controller extends Controller
         $request = Yii::$app->request;
         if ($request->isAjax) {
             Yii::$app->response->format = Response::FORMAT_JSON;
-            return [
-                'title' => "Siswa #" . $id,
-                'content' => $this->renderAjax('view', [
-                    'model' => $this->findModel($id),
-                ]),
-                'footer' => Html::button('Close', ['class' => 'btn btn-default pull-left', 'data-bs-dismiss' => "modal"]) .
-                    Html::a('Edit', ['update', 'id' => $id], ['class' => 'btn btn-primary', 'role' => 'modal-remote'])
-            ];
+            if ($request->isGet) {
+                return [
+                    'title' => "Siswa #" . $id,
+                    'content' => $this->renderAjax('view', [
+                        'model' => $this->findModel($id),
+                    ]),
+                    'footer' => Html::button('Close', ['class' => 'btn btn-default pull-left', 'data-bs-dismiss' => "modal"]) .
+                        Html::a('Edit', ['update', 'id' => $id], ['class' => 'btn btn-primary', 'role' => 'modal-remote'])
+                ];
+            }
         } else {
             return $this->render('view', [
                 'model' => $this->findModel($id),
