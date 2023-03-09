@@ -102,6 +102,18 @@ tr#crud-datatable-filters.filters.skip-export {
 
 /* Custom Table */
 
-.customTable {
-  background-color: black;
+.iconEdit {
+  padding: 0.5rem;
+  color: #28a745;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0px 1px 2px rgba(10, 10, 10, 0.12);
+  border-radius: 4px;
+}
+
+.iconDelete {
+  padding: 0.5rem;
+  color: #dc3545;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0px 1px 2px rgba(10, 10, 10, 0.12);
+  border-radius: 4px;
 }

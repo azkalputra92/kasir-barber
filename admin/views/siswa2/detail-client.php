@@ -55,18 +55,13 @@ CrudAsset::register($this);
 
         </div>
         <div class="card-body">
-          <a class="p-2 me-2" style="
-          border: 1px solid #E0E0E0;
-box-shadow: 0px 1px 2px rgba(10, 10, 10, 0.12);
-border-radius: 4px;" href="/admin/siswa2/view?id=1" title="Detail" role="modal-remote" data-toggle="tooltip">
-            <span class="material-symbols-outlined align-middle" style="color: #28A745;">mode_edit</span>
-          </a>
-          <a class="p-2" style="
-          border: 1px solid #E0E0E0;
-box-shadow: 0px 1px 2px rgba(10, 10, 10, 0.12);
-border-radius: 4px;" href="/admin/siswa2/view?id=1" href="/admin/siswa2/view?id=1" title="Detail" role="modal-remote"
+          <a class="me-2 iconEdit" href="/admin/siswa2/view?id=1" title="Detail" role="modal-remote"
             data-toggle="tooltip">
-            <span class="material-symbols-outlined align-middle" style="color: #DC3545;">delete</span>
+            <span class="material-symbols-outlined align-middle">mode_edit</span>
+          </a>
+          <a class="iconDelete" href="/admin/siswa2/view?id=1" href="/admin/siswa2/view?id=1" title="Detail"
+            role="modal-remote" data-toggle="tooltip">
+            <span class="material-symbols-outlined align-middle">delete</span>
           </a>
         </div>
       </div>
