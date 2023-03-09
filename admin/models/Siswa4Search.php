@@ -8,9 +8,9 @@ use yii\data\ActiveDataProvider;
 use common\models\Siswa;
 
 /**
- * Siswa2Search represents the model behind the search form about `common\models\Siswa`.
+ * Siswa4Search represents the model behind the search form about `common\models\Siswa`.
  */
-class Siswa2Search extends Siswa
+class Siswa4Search extends Siswa
 {
     /**
      * @inheritdoc
