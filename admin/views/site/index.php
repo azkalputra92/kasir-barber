@@ -12,9 +12,56 @@ $this->title = 'My Yii Application';
 <div class="site-index">
 
     <div class="body-content">
-        <div class="row">
-            <div class="col-xxl-5 col-ed-6 col-xl-12">
                 <div class="row">
+
+                    <div class="col-md-4">
+                        <div class="card course-box">
+                            <div class="card-body">
+                               1
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card course-box">
+                            <div class="card-body">
+                            2
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card course-box">
+                            <div class="card-body">
+                            3
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="card course-box">
+                            <div class="card-body">
+                            4
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-7">
+                        <div class="card course-box">
+                            <div class="card-body">
+                            6
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-5">
+                        <div class="card course-box">
+                            <div class="card-body">
+                            7
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="col-sm-4">
                         <div class="card course-box">
                             <div class="card-body">
@@ -921,7 +968,8 @@ $this->title = 'My Yii Application';
 
                         'pjax' => true,
 
-                        'columns' => require('C:\Apache24\htdocs\keuangan-dhila\admin\views\siswa2\_columns.php'),
+                        // 'columns' => require('/columns.php'),
+                        'columns' => require(__DIR__ . '/_columns.php'),
                         'toolbar' => [
                             [
                                 'content' =>
@@ -1077,7 +1125,5 @@ $this->title = 'My Yii Application';
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
     </div>
 </div>
