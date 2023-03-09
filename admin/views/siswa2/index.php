@@ -87,7 +87,6 @@ CrudAsset::register($this);
                         'pluginOptions' => [
                             'autoclose' => true,
                             'format' => 'yyyy-mm-dd',
-
                         ]
                     ]) . '</div>' .
                     '<div class="col-md-3">' .
