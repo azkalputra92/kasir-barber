@@ -16,14 +16,22 @@ $this->title = 'Siswas';
 $this->params['breadcrumbs'][] = $this->title;
 
 CrudAsset::register($this);
-
 ?>
 <div class="siswa-index">
+  <div class="mb-4">
+    <a href='/admin/siswa2/index' class="link-dark">
+      <h5><span class="material-symbols-outlined align-middle">arrow_back</span> <span
+          class="align-middle">Kembali</span></h5>
+    </a>
+  </div>
   <div class="row">
     <div class="col-sm-12">
       <div class="card">
         <div class="card-header">
-          <h5><i class="fas fa fa-plus me-2" aria-hidden="true"></i> Detail Client</h5>
+          <h5>
+            <span class="material-symbols-outlined me-2 align-middle">person_search</span>
+            <span class="align-middle">Detail Client</span>
+          </h5>
         </div>
         <div class="card-body border-bottom">
           <div class="row">
@@ -46,10 +54,19 @@ CrudAsset::register($this);
           </div>
         </div>
         <div class="card-body">
-          <a class="btn btn-outline-info btn-xs" href="/admin/siswa2/view?id=1" title="Detail" role="modal-remote"
-            data-toggle="tooltip"><i class="fas fa-pencil-alt text-success" aria-hidden="true"></i></a>
-          <a class="btn btn-outline-secondary btn-xs" href="/admin/siswa2/view?id=1" title="Detail" role="modal-remote"
-            data-toggle="tooltip"><i class="fas fa fa-trash text-danger" aria-hidden="true"></i></a>
+          <a class="p-2 me-2" style="
+          border: 1px solid #E0E0E0;
+box-shadow: 0px 1px 2px rgba(10, 10, 10, 0.12);
+border-radius: 4px;" href="/admin/siswa2/view?id=1" title="Detail" role="modal-remote" data-toggle="tooltip">
+            <span class="material-symbols-outlined align-middle" style="color: #28A745;">mode_edit</span>
+          </a>
+          <a class="p-2" style="
+          border: 1px solid #E0E0E0;
+box-shadow: 0px 1px 2px rgba(10, 10, 10, 0.12);
+border-radius: 4px;" href="/admin/siswa2/view?id=1" href="/admin/siswa2/view?id=1" title="Detail" role="modal-remote"
+            data-toggle="tooltip">
+            <span class="material-symbols-outlined align-middle" style="color: #DC3545;">delete</span>
+          </a>
         </div>
       </div>
       <div class="col-sm-12">
