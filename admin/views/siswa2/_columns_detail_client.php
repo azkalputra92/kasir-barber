@@ -50,22 +50,41 @@ return [
 
     //     ]
     // ],
+    // [
+    //     'class' => 'kartik\grid\ActionColumn',
+    //     'header' => '',
+    //     'template' => '{btn_aksi}',
+    //     'buttons' => [
+    //         "btn_aksi" => function ($url, $model, $key) {
+    //                 return Html::a('...', ['view', 'id' => $model->id], [
+    //                     'class' => 'btn btn-outline-info btn-xs',
+    //                     'role' => 'modal-remote',
+    //                     'title' => 'Detail',
+    //                     'data-toggle' => 'tooltip'
+    //                 ]);
+           
+    //         },
+
+    //     ]
+    // ],
     [
         'class' => 'kartik\grid\ActionColumn',
-        'header' => '',
-        'template' => '{btn_aksi}',
-        'buttons' => [
-            "btn_aksi" => function ($url, $model, $key) {
-                    return Html::a('...', ['view', 'id' => $model->id], [
-                        'class' => 'btn btn-outline-info btn-xs',
-                        'role' => 'modal-remote',
-                        'title' => 'Detail',
-                        'data-toggle' => 'tooltip'
-                    ]);
-           
-            },
-
-        ]
+        'dropdown' => false,
+        'vAlign' => 'middle',
+        'urlCreator' => function ($action, $model, $key, $index) {
+            return Url::to([$action, 'id' => $key]);
+        },
+        'template' => '{view} {delete}',
+        'viewOptions' => ['role' => 'modal-remote', 'title' => 'Lihat', 'data-toggle' => 'tooltip'],
+        'updateOptions' => ['role' => 'modal-remote', 'title' => 'Update', 'data-toggle' => 'tooltip'],
+        'deleteOptions' => [
+            'role' => 'modal-remote', 'title' => 'Hapus',
+            'data-confirm' => false, 'data-method' => false, // for overide yii data api
+            'data-request-method' => 'post',
+            'data-toggle' => 'tooltip',
+            'data-confirm-title' => 'Anda Yakin?',
+            'data-confirm-message' => 'Apakah Anda yakin akan menghapus data ini?'
+        ],
     ],
 
 ];
