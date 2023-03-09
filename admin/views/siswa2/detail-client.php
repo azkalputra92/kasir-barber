@@ -35,23 +35,24 @@ CrudAsset::register($this);
         </div>
         <div class="card-body border-bottom">
           <div class="row">
-            <div class="col">
+            <div class="col-md-3">
               <div class="row text-muted">Nama Perusahaan</div>
-              <div class="row">CodingLab.id</div>
+              <div class="row"><?= $data->nama; ?></div>
             </div>
-            <div class="col">
+            <div class="col-md-3">
               <div class="row text-muted">Nama Badan Usaha</div>
-              <div class="row">PT.Kodinglab Integrasi Indonesia</div>
+              <div class="row"><?= $data->nama; ?></div>
             </div>
-            <div class="col">
+            <div class="col-md-3">
               <div class="row text-muted">Nama Owner</div>
-              <div class="row">James David Wildan</div>
+              <div class="row"><?= $data->nama; ?></div>
             </div>
-            <div class="col">
+            <div class="col-md-3">
               <div class="row text-muted">Alamat Lengkap</div>
-              <div class="row">Jl. Suka Elok No.5, Suka Maju, Kec. Medan Johor, Kota Medan, Sumatera Utara 20147</div>
+              <div class="row"><?= $data->alamat; ?></div>
             </div>
           </div>
+
         </div>
         <div class="card-body">
           <a class="p-2 me-2" style="
@@ -75,18 +76,12 @@ border-radius: 4px;" href="/admin/siswa2/view?id=1" href="/admin/siswa2/view?id=
             'id' => 'crud-datatable',
             'dataProvider' => $dataProvider,
             'filterModel' => null,
-
             'summary' => "Menampilkan <b>{begin}</b> - <b>{end}</b> dari <b>{totalCount}</b> hasil",
-
             'pager' => [
 
 
                 'firstPageLabel' => 'Previous',
                 'lastPageLabel'  => 'Next',
-                // 'options'       =>  [
-                //     'class' => 'float-end'
-                // ]
-                // 'class' => LinkPager::class
             ],
 
             'pjax' => true,
@@ -101,7 +96,6 @@ border-radius: 4px;" href="/admin/siswa2/view?id=1" href="/admin/siswa2/view?id=
             'striped' => false,
             'condensed' => true,
             'responsive' => true,
-            // 'tableOptions' => ['class' => 'table table-hover table-lg'],
             'panel' => [
                 'type' => '',
                 'footer' => false,
@@ -124,26 +118,8 @@ border-radius: 4px;" href="/admin/siswa2/view?id=1" href="/admin/siswa2/view?id=
                         ]
                     ) . '</div>'
                     . Html::endForm(),
-                // 'after' => BulkButtonWidget::widget([
-                //     'buttons' => Html::a(
-                //         '<i class="fas fa fa-trash" aria-hidden="true"></i>&nbsp; Hapus semua',
-                //         ["bulkdelete"],
-                //         [
-                //             "class" => "btn btn-danger btn-xs",
-                //             'role' => 'modal-remote-bulk',
-                //             'data-confirm' => false, 'data-method' => false, // for overide yii data api
-                //             'data-request-method' => 'post',
-                //             'data-confirm-title' => 'Aapakah anda yakin?',
-                //             'data-confirm-message' => 'Apakah Anda yakin akan menghapus data ini?'
-                //         ]
-                //     ),
-                // ]) .
-                //     '<div class="clearfix"></div>',
 
                 'after' => '<br><div class="d-flex justify-content-between">{summary}{pager} </div>',
-
-                // 'footer' => '<div class="d-flex justify-content-between">{summary}{pager} </div>',
-
             ]
         ]) ?>
         </div>

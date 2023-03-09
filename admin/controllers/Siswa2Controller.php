@@ -62,13 +62,14 @@ class Siswa2Controller extends Controller
     public function actionDetailClient()
     {
         $searchModel = new Siswa2Search();
+        $data = Siswa::find()->one();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
 
         return $this->render('detail-client', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
-
+            'data' => $data
         ]);
     }
 
