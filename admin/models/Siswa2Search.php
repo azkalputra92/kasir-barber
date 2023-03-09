@@ -45,6 +45,9 @@ class Siswa2Search extends Siswa
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'pagination' => [
+                'pageSize' => 3,
+            ]
         ]);
 
         $this->load($params);
