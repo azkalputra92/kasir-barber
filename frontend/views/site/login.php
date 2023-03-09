@@ -15,10 +15,16 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="col-12 p-0">    
             <div class="login-card">
                 <div>
-                    <div>
-                        <a class="logo" href="#">
-                            
-                        </a>
+                    <div >
+                        <div class="row">
+                            <div class="col-5 d-flex justify-content-end">
+                                <img class="img-fluid mb-3" src="/frontend/web/images/logo-codinglab.png">
+                            </div>
+                            <div class="col-7">
+                                <h6 class="">APLIKASI KEUANGAN</h6>
+                                <p class="">CODINGLAB.ID</p>
+                            </div>
+                        </div> 
                     </div>
                     <div class="login-main"> 
                         <form class="theme-form">
@@ -27,7 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
                             <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
                             <div class="form-group">
-                                <?= $form->field($model, 'username')->textInput(['autofocus' => true])->label('ID Pengguna') ?>
+                                <?= $form->field($model, 'username')->textInput(['autofocus' => true, 'placeholder' => 'Masukkan ID anda'])->label('ID Pengguna') ?>
                             </div>
 
                             <div class="form-group">
