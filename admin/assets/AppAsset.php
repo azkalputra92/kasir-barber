@@ -13,7 +13,13 @@ class AppAsset extends AssetBundle
     public $baseUrl = '@web';
     public $css = [
         'css/site.css',
-        'css/myStyle.css',
+        // 'css/myStyle.css',
+
+        'cube/images/favicon.png',
+        'cube/images/favicon.png',
+        //  Google font
+        'https://fonts.googleapis.com/css?family=Rubik:400,400i,500,500i,700,700i&amp;display=swap',
+        'https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900&amp;display=swap',
         'assetsTemplate/css/font-awesome.css',
         'assetsTemplate/css/vendors/icofont.css',
         'assetsTemplate/css/vendors/themify.css',
@@ -31,6 +37,8 @@ class AppAsset extends AssetBundle
         'assetsTemplate/css/color-1.css',
         'assetsTemplate/css/responsive.css',
 
+        'assetsTemplate/css/vendors/date-picker.css',
+
     ];
     public $js = [
 
@@ -42,10 +50,13 @@ class AppAsset extends AssetBundle
         'assetsTemplate/js/scrollbar/simplebar.js',
         'assetsTemplate/js/scrollbar/custom.js',
         // End Scrollbar js
-
+        // Sidebar jquery
+        'cube/js/config.js',
         // Plugins JS start
         'assetsTemplate/js/sidebar-menu.js',
-
+        'assetsTemplate/js/slick/slick.min.js',
+        'assetsTemplate/js/slick/slick.js',
+        'assetsTemplate/js/header-slick.js',
         // Plugins JS Ends
         // Theme js
         'assetsTemplate/js/script.js',
