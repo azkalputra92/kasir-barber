@@ -75,6 +75,8 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        $model = new LoginForm();
+        $model->password = '';
         return $this->render('index');
     }
 
