@@ -22,14 +22,14 @@ return [
     ],
 
     'modules' => [
-        // 'gii' => [
-        //     'class' => 'yii\gii\Module',
-        //     'generators' => [
-        //         'crud'   => [
-        //             'class' => 'common\generators\Generator',
-        //         ]
-        //     ]
-        // ],
+        'gii' => [
+            'class' => 'yii\gii\Module',
+            'generators' => [
+                'crudTemplate'   => [
+                    'class' => 'common\customgenerators\template1\Generator',
+                ],
+            ]
+        ],
         'gridview' =>  [
             'class' => '\kartik\grid\Module'
         ],

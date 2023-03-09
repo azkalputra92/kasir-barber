@@ -26,11 +26,8 @@ CrudAsset::register($this);
             'id' => 'crud-datatable',
             'dataProvider' => $dataProvider,
             'filterModel' => null,
-
             'summary' => "Menampilkan <b>{begin}</b> - <b>{end}</b> dari <b>{totalCount}</b> hasil",
-
             'pjax' => true,
-
             'columns' => require(__DIR__ . '/_columns.php'),
             'toolbar' => [
                 [
