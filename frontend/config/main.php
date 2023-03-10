@@ -9,12 +9,15 @@ $params = array_merge(
 return [
     'id' => 'app-frontend',
     'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
-
+    'bootstrap' => ['log'],
+    'modules' => [],
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-frontend',
+            'class' => 'common\components\Request',
+            'web' => '/frontend/web',
+            'adminUrl' => '/frontend'
         ],
         'user' => [
             'identityClass' => 'common\models\User',
@@ -37,14 +40,23 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        /*
+
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'rules' => [
-            ],
+            'rules' => [],
         ],
-        */
+
+    ],
+    'as access' => [
+        // 'class' => '\hscstudio\mimin\components\AccessControl',
+        'class' => 'mdm\admin\components\AccessControl',
+        'allowActions' => [
+            'gii/*',
+            'site/*',
+            'debug/*',
+            // 'mimin/*', // only in dev mode
+        ],
     ],
     'params' => $params,
 ];

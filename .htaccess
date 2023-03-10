@@ -33,6 +33,20 @@ RewriteCond %{REQUEST_URI} ^/(admin)
 RewriteRule ^.*$ admin/web/index.php [L]
 # ===================== end admin =====================
 
+# ===================== frontend =====================
+RewriteCond %{REQUEST_URI} ^/(frontend)
+RewriteRule ^frontend/assets/(.*)$ frontend/web/assets/$1 [L]
+RewriteRule ^frontend/assetsTemplate/(.*)$ frontend/web/assetsTemplate/$1 [L]
+RewriteRule ^frontend/css/(.*)$ frontend/web/css/$1 [L]
+RewriteRule ^frontend/images/(.*)$ frontend/web/images/$1 [L]
+RewriteRule ^frontend/js/(.*)$ frontend/web/js/$1 [L]
+RewriteRule ^frontend/fonts/(.*)$ frontend/web/fonts/$1 [L]
+RewriteRule ^frontend/icon/(.*)$ frontend/web/icon/$1 [L]
+
+RewriteCond %{REQUEST_URI} !^/frontend/web/(assets|css|images|js|fonts|icon|assetsTemplate)/
+RewriteCond %{REQUEST_URI} ^/(frontend)
+RewriteRule ^.*$ frontend/web/index.php [L]
+# ===================== end frontend =====================
 
 # ===================== frontend =====================
 RewriteCond %{REQUEST_URI} ^/(assets|css)
@@ -47,11 +61,11 @@ RewriteRule ^fonts/(.*)$ frontend/web/fonts/$1 [L]
 RewriteRule ^icon/(.*)$ frontend/web/icon/$1 [L]
 
 # Tambahkan juga templatenya disini (assetsTemplate)
-RewriteCond %{REQUEST_URI} !^/(frontend|backend|admin)/web/(assets|assetsTemplate|css|images|js|fonts|icon)/
+RewriteCond %{REQUEST_URI} !^/(backend|admin|frontend)/web/(assets|assetsTemplate|css|images|js|fonts|icon)/
 
 RewriteCond %{REQUEST_URI} !index.php
 RewriteCond %{REQUEST_FILENAME} !-f [OR]
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^.*$ frontend/web/index.php
 
-# ===================== end frontend =====================
+
