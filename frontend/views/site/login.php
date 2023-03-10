@@ -26,12 +26,11 @@ $this->params['breadcrumbs'][] = $this->title;
                             </div>
                         </div> 
                     </div>
-                    <div class="login-main"> 
-                        <form class="theme-form">
+                    <div class="login-main">
                             <h4 class="text-center">Selamat Datang</h4>
                             <p class="text-center">Gunakan ID Pengguna dan Sandi untuk masuk</p>
 
-                            <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
+                            <?php $form = ActiveForm::begin(['id' => 'login-form', 'class' => 'theme-form']); ?>
                             <div class="form-group">
                                 <?= $form->field($model, 'username')->textInput(['autofocus' => true, 'placeholder' => 'Masukkan ID anda'])->label('ID Pengguna') ?>
                             </div>
@@ -56,7 +55,6 @@ $this->params['breadcrumbs'][] = $this->title;
                             <p class="mt-5 text-center mb-0">
                                 Belum memiliki Akun?<a class="ms-2" href="sign-up.html">Hubungi Admin</a>
                             </p>
-                        </form>
                     </div>
                 </div>
             </div>
