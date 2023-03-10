@@ -35,6 +35,8 @@ class AppAsset extends AssetBundle
         'assetsTemplate/css/vendors/bootstrap.css',
         'assetsTemplate/css/style.css',
         'assetsTemplate/css/color-1.css',
+        'assetsTemplate/css/font-awesome.css',
+        'assetsTemplate/css/button-builder.css',
         'assetsTemplate/css/responsive.css',
 
         'assetsTemplate/css/vendors/date-picker.css',
@@ -51,7 +53,7 @@ class AppAsset extends AssetBundle
         'assetsTemplate/js/scrollbar/custom.js',
         // End Scrollbar js
         // Sidebar jquery
-        'cube/js/config.js',
+        'assetsTemplate/js/config.js',
         // Plugins JS start
         'assetsTemplate/js/sidebar-menu.js',
         'assetsTemplate/js/slick/slick.min.js',
