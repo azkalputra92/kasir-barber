@@ -24,20 +24,20 @@ class SiteController extends Controller
 
 
             //bentrok dengan mdm
-            // 'access' => [
-            //     'class' => AccessControl::className(),
-            //     'rules' => [
-            //         [
-            //             'actions' => ['login', 'error'],
-            //             'allow' => true,
-            //         ],
-            //         [
-            //             'actions' => ['logout', 'index'],
-            //             'allow' => true,
-            //             'roles' => ['@'],
-            //         ],
-            //     ],
-            // ],
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'actions' => ['login', 'error'],
+                        'allow' => true,
+                    ],
+                    [
+                        'actions' => ['logout', 'index'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
 
             'verbs' => [
                 'class' => VerbFilter::className(),
@@ -67,14 +67,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new SiswaSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
-
+        return $this->render('index');
     }
 
     /**
