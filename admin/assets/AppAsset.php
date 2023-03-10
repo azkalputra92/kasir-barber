@@ -29,6 +29,7 @@ class AppAsset extends AssetBundle
         'assetsTemplate/css/vendors/slick-theme.css',
         'assetsTemplate/css/vendors/scrollbar.css',
         'assetsTemplate/css/vendors/animate.css',
+        'assetsTemplate/css/vendors/date-time-picker.css',
         // End Plugins css start
         // Bootstrap css
         'assetsTemplate/css/vendors/bootstrap.css',
@@ -61,6 +62,9 @@ class AppAsset extends AssetBundle
         // Plugins JS Ends
         // Theme js
         'assetsTemplate/js/script.js',
+        'assetsTemplate/js/datepicker/date-time-picker/moment.min.js',
+        'assetsTemplate/js/datepicker/date-time-picker/tempusdominus-bootstrap-4.min.js',
+        // 'assetsTemplate/js/datepicker/date-time-picker/datetimepicker.custom.js',
         // 'assetsTemplate/js/theme-customizer/customizer.js',
 
     ];

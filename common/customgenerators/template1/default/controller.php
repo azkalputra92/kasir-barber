@@ -1,11 +1,43 @@
 <?php
 
-namespace admin\controllers;
+/**
+ * This is the template for generating a CRUD controller class file.
+ */
+
+use yii\helpers\StringHelper;
+use yii\db\ActiveRecordInterface;
+
+
+/* @var $this yii\web\View */
+/* @var $generator yii\gii\generators\crud\Generator */
+
+$controllerClass = StringHelper::basename($generator->controllerClass);
+$modelClass = StringHelper::basename($generator->modelClass);
+$searchModelClass = StringHelper::basename($generator->searchModelClass);
+if ($modelClass === $searchModelClass) {
+    $searchModelAlias = $searchModelClass . 'Search';
+}
+
+/* @var $class ActiveRecordInterface */
+$class = $generator->modelClass;
+$pks = $class::primaryKey();
+$urlParams = $generator->generateUrlParams();
+$actionParams = $generator->generateActionParams();
+$actionParamComments = $generator->generateActionParamComments();
+
+echo "<?php\n";
+?>
+
+namespace <?= StringHelper::dirname(ltrim($generator->controllerClass, '\\')) ?>;
 
 use Yii;
-use common\models\Siswa;
-    use admin\models\Siswa2Search;
-use yii\web\Controller;
+use <?= ltrim($generator->modelClass, '\\') ?>;
+<?php if (!empty($generator->searchModelClass)) : ?>
+    use <?= ltrim($generator->searchModelClass, '\\') . (isset($searchModelAlias) ? " as $searchModelAlias" : "") ?>;
+<?php else : ?>
+    use yii\data\ActiveDataProvider;
+<?php endif; ?>
+use <?= ltrim($generator->baseControllerClass, '\\') ?>;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use \yii\web\Response;
@@ -13,9 +45,9 @@ use yii\helpers\Html;
 use yii\filters\AccessControl;
 
 /**
-* Siswa2Controller implements the CRUD actions for Siswa model.
+* <?= $controllerClass ?> implements the CRUD actions for <?= $modelClass ?> model.
 */
-class Siswa2Controller extends Controller
+class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->baseControllerClass) . "\n" ?>
 {
 /**
 * @inheritdoc
@@ -42,48 +74,58 @@ return [
 }
 
 /**
-* Lists all Siswa models.
+* Lists all <?= $modelClass ?> models.
 * @return mixed
 */
 public function actionIndex()
 {
-    $searchModel = new Siswa2Search();
+<?php if (!empty($generator->searchModelClass)) : ?>
+    $searchModel = new <?= isset($searchModelAlias) ? $searchModelAlias : $searchModelClass ?>();
     $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
     return $this->render('index', [
     'searchModel' => $searchModel,
     'dataProvider' => $dataProvider,
     ]);
+<?php else : ?>
+    $dataProvider = new ActiveDataProvider([
+    'query' => <?= $modelClass ?>::find(),
+    ]);
+
+    return $this->render('index', [
+    'dataProvider' => $dataProvider,
+    ]);
+<?php endif; ?>
 }
 
 
 /**
-* Displays a single Siswa model.
-* @param integer $id
+* Displays a single <?= $modelClass ?> model.
+* <?= implode("\n     * ", $actionParamComments) . "\n" ?>
 * @return mixed
 */
-public function actionView($id)
+public function actionView(<?= $actionParams ?>)
 {
 $request = Yii::$app->request;
 if($request->isAjax){
 Yii::$app->response->format = Response::FORMAT_JSON;
 return [
-'title'=> "Siswa #".$id,
+'title'=> "<?= $modelClass ?> #".<?= $actionParams ?>,
 'content'=>$this->renderAjax('view', [
-'model' => $this->findModel($id),
+'model' => $this->findModel(<?= $actionParams ?>),
 ]),
 'footer'=> Html::button('Close',['class'=>'btn btn-default pull-left','data-bs-dismiss'=>"modal"]).
-Html::a('Edit',['update','id'=>$id],['class'=>'btn btn-primary','role'=>'modal-remote'])
+Html::a('Edit',['update','<?= substr($actionParams, 1) ?>'=><?= $actionParams ?>],['class'=>'btn btn-primary','role'=>'modal-remote'])
 ];
 }else{
 return $this->render('view', [
-'model' => $this->findModel($id),
+'model' => $this->findModel(<?= $actionParams ?>),
 ]);
 }
 }
 
 /**
-* Creates a new Siswa model.
+* Creates a new <?= $modelClass ?> model.
 * For ajax request will return json object
 * and for non-ajax request if creation is successful, the browser will be redirected to the 'view' page.
 * @return mixed
@@ -91,7 +133,7 @@ return $this->render('view', [
 public function actionCreate()
 {
 $request = Yii::$app->request;
-$model = new Siswa();
+$model = new <?= $modelClass ?>();
 
 if($request->isAjax){
 /*
@@ -100,7 +142,7 @@ if($request->isAjax){
 Yii::$app->response->format = Response::FORMAT_JSON;
 if($request->isGet){
 return [
-'title'=> "Tambah Data Siswa",
+'title'=> "Tambah Data <?= $modelClass ?>",
 'content'=>$this->renderAjax('create', [
 'model' => $model,
 ]),
@@ -111,15 +153,15 @@ Html::button('Save',['class'=>'btn btn-primary','type'=>"submit"])
 }else if($model->load($request->post()) && $model->save()){
 return [
 'forceReload'=>'#crud-datatable-pjax',
-'title'=> "Create new Siswa",
-'content'=>'<span class="text-success">Create Siswa success</span>',
+'title'=> "Create new <?= $modelClass ?>",
+'content'=>'<span class="text-success">Create <?= $modelClass ?> success</span>',
 'footer'=> Html::button('Close',['class'=>'btn btn-default pull-left','data-bs-dismiss'=>"modal"]).
 Html::a('Create More',['create'],['class'=>'btn btn-primary','role'=>'modal-remote'])
 
 ];
 }else{
 return [
-'title'=> "Create new Siswa",
+'title'=> "Create new <?= $modelClass ?>",
 'content'=>$this->renderAjax('create', [
 'model' => $model,
 ]),
@@ -133,7 +175,7 @@ Html::button('Save',['class'=>'btn btn-primary','type'=>"submit"])
 * Process for non-ajax request
 */
 if ($model->load($request->post()) && $model->save()) {
-return $this->redirect(['view', 'id' => $model->id]);
+return $this->redirect(['view', <?= $urlParams ?>]);
 } else {
 return $this->render('create', [
 'model' => $model,
@@ -144,16 +186,16 @@ return $this->render('create', [
 }
 
 /**
-* Updates an existing Siswa model.
+* Updates an existing <?= $modelClass ?> model.
 * For ajax request will return json object
 * and for non-ajax request if update is successful, the browser will be redirected to the 'view' page.
-* @param integer $id
+* <?= implode("\n     * ", $actionParamComments) . "\n" ?>
 * @return mixed
 */
-public function actionUpdate($id)
+public function actionUpdate(<?= $actionParams ?>)
 {
 $request = Yii::$app->request;
-$model = $this->findModel($id);
+$model = $this->findModel(<?= $actionParams ?>);
 
 if($request->isAjax){
 /*
@@ -162,7 +204,7 @@ if($request->isAjax){
 Yii::$app->response->format = Response::FORMAT_JSON;
 if($request->isGet){
 return [
-'title'=> "Ubah Data Siswa",
+'title'=> "Ubah Data <?= $modelClass ?>",
 'content'=>$this->renderAjax('update', [
 'model' => $model,
 ]),
@@ -172,16 +214,16 @@ Html::button('Save',['class'=>'btn btn-primary','type'=>"submit"])
 }else if($model->load($request->post()) && $model->save()){
 return [
 'forceReload'=>'#crud-datatable-pjax',
-'title'=> "Siswa #".$id,
+'title'=> "<?= $modelClass ?> #".<?= $actionParams ?>,
 'content'=>$this->renderAjax('view', [
 'model' => $model,
 ]),
 'footer'=> Html::button('Close',['class'=>'btn btn-default pull-left','data-bs-dismiss'=>"modal"]).
-Html::a('Edit',['update','id'=>$id],['class'=>'btn btn-primary','role'=>'modal-remote'])
+Html::a('Edit',['update','<?= substr($actionParams, 1) ?>'=><?= $actionParams ?>],['class'=>'btn btn-primary','role'=>'modal-remote'])
 ];
 }else{
 return [
-'title'=> "Update Siswa #".$id,
+'title'=> "Update <?= $modelClass ?> #".<?= $actionParams ?>,
 'content'=>$this->renderAjax('update', [
 'model' => $model,
 ]),
@@ -194,7 +236,7 @@ Html::button('Save',['class'=>'btn btn-primary','type'=>"submit"])
 * Process for non-ajax request
 */
 if ($model->load($request->post()) && $model->save()) {
-return $this->redirect(['view', 'id' => $model->id]);
+return $this->redirect(['view', <?= $urlParams ?>]);
 } else {
 return $this->render('update', [
 'model' => $model,
@@ -204,16 +246,16 @@ return $this->render('update', [
 }
 
 /**
-* Delete an existing Siswa model.
+* Delete an existing <?= $modelClass ?> model.
 * For ajax request will return json object
 * and for non-ajax request if deletion is successful, the browser will be redirected to the 'index' page.
-* @param integer $id
+* <?= implode("\n     * ", $actionParamComments) . "\n" ?>
 * @return mixed
 */
-public function actionDelete($id)
+public function actionDelete(<?= $actionParams ?>)
 {
 $request = Yii::$app->request;
-$this->findModel($id)->delete();
+$this->findModel(<?= $actionParams ?>)->delete();
 
 if($request->isAjax){
 /*
@@ -232,10 +274,10 @@ return $this->redirect(['index']);
 }
 
 /**
-* Delete multiple existing Siswa model.
+* Delete multiple existing <?= $modelClass ?> model.
 * For ajax request will return json object
 * and for non-ajax request if deletion is successful, the browser will be redirected to the 'index' page.
-* @param integer $id
+* <?= implode("\n     * ", $actionParamComments) . "\n" ?>
 * @return mixed
 */
 public function actionBulkdelete()
@@ -263,15 +305,26 @@ return $this->redirect(['index']);
 }
 
 /**
-* Finds the Siswa model based on its primary key value.
+* Finds the <?= $modelClass ?> model based on its primary key value.
 * If the model is not found, a 404 HTTP exception will be thrown.
-* @param integer $id
-* @return Siswa the loaded model
+* <?= implode("\n     * ", $actionParamComments) . "\n" ?>
+* @return <?= $modelClass ?> the loaded model
 * @throws NotFoundHttpException if the model cannot be found
 */
-protected function findModel($id)
+protected function findModel(<?= $actionParams ?>)
 {
-if (($model = Siswa::findOne($id)) !== null) {
+<?php
+if (count($pks) === 1) {
+    $condition = '$id';
+} else {
+    $condition = [];
+    foreach ($pks as $pk) {
+        $condition[] = "'$pk' => \$$pk";
+    }
+    $condition = '[' . implode(', ', $condition) . ']';
+}
+?>
+if (($model = <?= $modelClass ?>::findOne(<?= $condition ?>)) !== null) {
 return $model;
 } else {
 throw new NotFoundHttpException('The requested page does not exist.');

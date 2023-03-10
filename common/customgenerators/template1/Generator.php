@@ -1,6 +1,5 @@
 <?php
-
-namespace common\generators;
+namespace common\customgenerators\template1;
 
 use Yii;
 use yii\db\ActiveRecord;
@@ -10,7 +9,6 @@ use yii\gii\CodeFile;
 use yii\helpers\Inflector;
 use yii\helpers\VarDumper;
 use yii\web\Controller;
-
 /**
  * Generates CRUD
  *
@@ -37,7 +35,7 @@ class Generator extends \yii\gii\Generator
      */
     public function getName()
     {
-        return 'Crud Kita Bersama';
+        return 'Ajax CRUD Generator';
     }
 
     /**
@@ -94,7 +92,7 @@ class Generator extends \yii\gii\Generator
         return array_merge(parent::hints(), [
             'modelClass' => 'This is the ActiveRecord class associated with the table that CRUD will be built upon.
                 You should provide a fully qualified class name, e.g., <code>app\models\Post</code>.',
-            'controllerClass' => 'This is the name of the controller class to be generated. You should
+             'controllerClass' => 'This is the name of the controller class to be generated. You should
                 provide a fully qualified namespaced class (e.g. <code>app\controllers\PostController</code>),
                 and class name should be in CamelCase with an uppercase first letter. Make sure the class
                 is using the same namespace as specified by your application\'s controllerNamespace property.',
@@ -129,7 +127,7 @@ class Generator extends \yii\gii\Generator
      */
     public function validateModelClass()
     {
-        /* @var $class ActiveRecord */
+        /* @var $class ActiveRecord */     
         $class = $this->modelClass;
         $pk = $class::primaryKey();
         if (empty($pk)) {
@@ -235,7 +233,7 @@ class Generator extends \yii\gii\Generator
                     $dropDownOptions[$enumValue] = Inflector::humanize($enumValue);
                 }
                 return "\$form->field(\$model, '$attribute')->dropDownList("
-                    . preg_replace("/\n\s*/", ' ', VarDumper::export($dropDownOptions)) . ", ['prompt' => ''])";
+                    . preg_replace("/\n\s*/", ' ', VarDumper::export($dropDownOptions)).", ['prompt' => ''])";
             } elseif ($column->phpType !== 'string' || $column->size === null) {
                 return "\$form->field(\$model, '$attribute')->$input()";
             } else {

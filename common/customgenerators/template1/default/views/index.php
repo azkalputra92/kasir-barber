@@ -1,4 +1,19 @@
 <?php
+
+use yii\helpers\Inflector;
+use yii\helpers\StringHelper;
+use yii\bootstrap5\Modal;
+use yii\helpers\Url;
+use yii\bootstrap5\Html;
+
+
+/* @var $this yii\web\View */
+/* @var $generator yii\gii\generators\crud\Generator */
+
+$urlParams = $generator->generateUrlParams();
+$nameAttribute = $generator->getNameAttribute();
+echo "<?php\n";
+?>
 use yii\helpers\Url;
 use yii\bootstrap5\Html;
 use yii\bootstrap5\Modal;
@@ -7,18 +22,18 @@ use cangak\ajaxcrud\CrudAsset;
 use cangak\ajaxcrud\BulkButtonWidget;
 
 /* @var $this yii\web\View */
-/* @var $searchModel admin\models\Siswa2Search */
+<?= !empty($generator->searchModelClass) ? "/* @var \$searchModel " . ltrim($generator->searchModelClass, '\\') . " */\n" : '' ?>
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Siswas';
+$this->title = <?= $generator->generateString(Inflector::pluralize(Inflector::camel2words(StringHelper::basename($generator->modelClass)))) ?>;
 $this->params['breadcrumbs'][] = $this->title;
 
 CrudAsset::register($this);
 
 ?>
-<div class="siswa-index">
+<div class="<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>-index">
     <div id="ajaxCrudDatatable">
-        <?=GridView::widget([
+        <?= "<?=" ?>GridView::widget([
         'id'=>'crud-datatable',
         'dataProvider' => $dataProvider,
         'filterModel' => null,
@@ -37,8 +52,8 @@ CrudAsset::register($this);
         'responsive' => true,
         'panel' => [
         'type' => '',
-        'heading' => '<b>Data Siswa</b>' . Html::a(
-        '<i class="fas fa fa-plus" aria-hidden="true"></i> Siswa',
+        'heading' => '<b>Data <?= Inflector::camel2words(StringHelper::basename($generator->modelClass)) ?></b>' . Html::a(
+        '<i class="fas fa fa-plus" aria-hidden="true"></i> <?= Inflector::camel2words(StringHelper::basename($generator->modelClass)) ?>',
         ['create'],
         ['role' => 'modal-remote', 'title' => 'Tambah Siswas', 'class' => 'btn btn-info']
         ),
@@ -67,15 +82,15 @@ CrudAsset::register($this);
         ],
         'panelFooterTemplate'=> '<br>
         <div class="d-flex justify-content-between">{summary}{pager} </div>',
-        ])?>
+        ])<?= "?>\n" ?>
     </div>
 </div>
-<?php Modal::begin([
+<?= '<?php Modal::begin([
    "options" => [
     "id"=>"ajaxCrudModal",
     "tabindex" => false // important for Select2 to work properly
 ],
    "id"=>"ajaxCrudModal",
     "footer"=>"",// always need it for jquery plugin
-])?>
-<?php Modal::end(); ?>
+])?>' . "\n" ?>
+<?= '<?php Modal::end(); ?>' ?>

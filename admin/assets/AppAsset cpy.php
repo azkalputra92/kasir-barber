@@ -40,29 +40,31 @@ class AppAsset extends AssetBundle
         'assetsTemplate/js/scrollbar/custom.js',
         // End Scrollbar js
         // Sidebar jquery
-        // 'assetsTemplate/js/config.js',
+        'assetsTemplate/js/config.js',
         // End Sidebar jquery
         // Plugins JS start
         'assetsTemplate/js/sidebar-menu.js',
-        // 'assetsTemplate/js/clock.js',
-        // 'assetsTemplate/js/slick/slick.min.js',
-        // 'assetsTemplate/js/slick/slick.js',
-        // 'assetsTemplate/js/header-slick.js',
-        // 'assetsTemplate/js/chart/apex-chart/apex-chart.js',
-        // 'assetsTemplate/js/chart/apex-chart/stock-prices.js',
-        // 'assetsTemplate/js/chart/apex-chart/moment.min.js',
-        // 'assetsTemplate/js/notify/bootstrap-notify.min.js',
-        // 'assetsTemplate/js/dashboard/default.js',
-        // 'assetsTemplate/js/notify/index.js',
-        // 'assetsTemplate/js/typeahead/handlebars.js',
-        // 'assetsTemplate/js/typeahead/typeahead.bundle.js',
-        // 'assetsTemplate/js/typeahead/typeahead.custom.js',
-        // 'assetsTemplate/js/typeahead-search/handlebars.js',
-        // 'assetsTemplate/js/typeahead-search/typeahead-custom.js',
+
+        'assetsTemplate/js/clock.js',
+        'assetsTemplate/js/slick/slick.min.js',
+        'assetsTemplate/js/slick/slick.js',
+        'assetsTemplate/js/header-slick.js',
+        'assetsTemplate/js/chart/apex-chart/apex-chart.js',
+        'assetsTemplate/js/chart/apex-chart/stock-prices.js',
+        'assetsTemplate/js/chart/apex-chart/moment.min.js',
+        'assetsTemplate/js/notify/bootstrap-notify.min.js',
+        'assetsTemplate/js/dashboard/default.js',
+        'assetsTemplate/js/notify/index.js',
+        'assetsTemplate/js/typeahead/handlebars.js',
+        'assetsTemplate/js/typeahead/typeahead.bundle.js',
+        'assetsTemplate/js/typeahead/typeahead.custom.js',
+        'assetsTemplate/js/typeahead-search/handlebars.js',
+        'assetsTemplate/js/typeahead-search/typeahead-custom.js',
         // Plugins JS Ends
         // Theme js
         'assetsTemplate/js/script.js',
-        // 'assetsTemplate/js/theme-customizer/customizer.js',
+
+        'assetsTemplate/js/theme-customizer/customizer.js',
 
     ];
     public $depends = [

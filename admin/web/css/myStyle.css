@@ -69,6 +69,11 @@ button.btn.btn-primary {
   background-color: #34a1da !important;
 }
 
+button.btn.btn-primary.btn-search {
+  border-color: #fff !important;
+  background-color: #17a2b8 !important;
+}
+
 button.btn-outline-primary:hover {
   color: white !important;
   background-color: #17a2b8 !important;
@@ -79,18 +84,37 @@ button.btn-outline-primary:focus {
   background-color: #fff !important;
   border-color: #34a1da !important;
 }
-/* 
-tr#crud-datatable-filters.filters.skip-export {
-  display: none !important;
-} */
 
-/* .table-bordered > thead.kv-table-header > tr,
-.table-bordered > thead.kv-table-header > tr > th,
-.table-bordered > thead.kv-table-header > tr > td,
-.kv-table-header > tr,
-.kv-table-header > tr > th,
-.kv-table-header > tr > td {
+i.icofont.icofont-pencil-alt-5 {
+  color: #28a745 !important;
+}
+
+i.icofont.icofont-ui-delete {
+  color: #dc3545 !important;
+}
+
+i.icofont.icofont-plus-circle {
+  color: #34a1da !important;
+}
+
+th > a {
+  color: black !important;
+  font-weight: 700;
+}
+
+th.kv-align-center.kv-align-middle {
+  color: black !important;
+  font-weight: 700;
+  font-size: inherit;
+}
+
+th {
   background-color: #f5f5f5 !important;
+  height: 68px !important;
+}
+
+.btn-primary {
+  background-color: #34a1da !important;
   height: 88px !important;
 } */
 

@@ -17,7 +17,7 @@ use yii\widgets\DetailView;
 /* @var $model <?= ltrim($generator->modelClass, '\\') ?> */
 ?>
 <div class="<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>-view">
-    <div class="table-responsive">
+ 
     <?= "<?= " ?>DetailView::widget([
         'model' => $model,
         'attributes' => [
@@ -35,6 +35,5 @@ use yii\widgets\DetailView;
             ?>
         ],
     ]) ?>
-    </div>
 
 </div>
