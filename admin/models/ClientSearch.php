@@ -8,54 +8,57 @@ use yii\data\ActiveDataProvider;
 use common\models\Client;
 
 /**
- * ClientSearch represents the model behind the search form about `common\models\Client`.
- */
+* ClientSearch represents the model behind the search form about `common\models\Client`.
+*/
 class ClientSearch extends Client
 {
-    /**
-     * @inheritdoc
-     */
-    public function rules()
-    {
-        return [
-            [['id'], 'integer'],
+/**
+* @inheritdoc
+*/
+public function rules()
+{
+return [
+[['id'], 'integer'],
             [['nama_perusahaan', 'nama_badan_usaha', 'nama_owner', 'alamat'], 'safe'],
-        ];
-    }
+];
+}
 
-    /**
-     * @inheritdoc
-     */
-    public function scenarios()
-    {
-        // bypass scenarios() implementation in the parent class
-        return Model::scenarios();
-    }
+/**
+* @inheritdoc
+*/
+public function scenarios()
+{
+// bypass scenarios() implementation in the parent class
+return Model::scenarios();
+}
 
-    /**
-     * Creates data provider instance with search query applied
-     *
-     * @param array $params
-     *
-     * @return ActiveDataProvider
-     */
-    public function search($params)
-    {
-        $query = Client::find();
+/**
+* Creates data provider instance with search query applied
+*
+* @param array $params
+*
+* @return ActiveDataProvider
+*/
+public function search($params)
+{
+$query = Client::find();
 
-        $dataProvider = new ActiveDataProvider([
-            'query' => $query,
-        ]);
+$dataProvider = new ActiveDataProvider([
+'query' => $query,
+'pagination' =>[
+'pageSize' => 5,
+]
+]);
 
-        $this->load($params);
+$this->load($params);
 
-        if (!$this->validate()) {
-            // uncomment the following line if you do not want to return any records when validation fails
-            // $query->where('0=1');
-            return $dataProvider;
-        }
+if (!$this->validate()) {
+// uncomment the following line if you do not want to return any records when validation fails
+// $query->where('0=1');
+return $dataProvider;
+}
 
-        $query->andFilterWhere([
+$query->andFilterWhere([
             'id' => $this->id,
         ]);
 
@@ -64,6 +67,6 @@ class ClientSearch extends Client
             ->andFilterWhere(['like', 'nama_owner', $this->nama_owner])
             ->andFilterWhere(['like', 'alamat', $this->alamat]);
 
-        return $dataProvider;
-    }
+return $dataProvider;
+}
 }
