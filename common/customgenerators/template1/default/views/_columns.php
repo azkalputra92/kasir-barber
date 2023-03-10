@@ -59,10 +59,10 @@ foreach ($generator->getColumnNames() as $name) {
     } else if (++$count < 6) {
         echo "    [\n";
         echo "        'class'=>'\kartik\grid\DataColumn',\n";
-        echo "         'label' => '" . $name . '<i class="icofont icofont-sort-alt"></i>' . "',\n";
-        echo "         'attribute'=>'" . $name . "',\n";
-        echo "         'vAlign' => 'middle',\n";
-        echo "         'encodeLabel' => false,\n";
+        echo "        'label' => '" . $name . '<i class="icofont icofont-sort-alt"></i>' . "',\n";
+        echo "        'attribute'=>'" . $name . "',\n";
+        echo "        'vAlign' => 'middle',\n";
+        echo "        'encodeLabel' => false,\n";
         echo "    ],\n";
     } else {
         echo "    // [\n";
@@ -79,8 +79,16 @@ foreach ($generator->getColumnNames() as $name) {
 [
 'class' => 'kartik\grid\ActionColumn',
 'header' => '',
-'template' => '{edit} {delete}',
+'template' => '{btn_custom} {edit} {delete}',
 'buttons' => [
+"btn_custom" => function ($url, $model, $key) {
+return Html::a('<i class="far fa-images"></i>', ['view', 'id' => $model->id], [
+'class' => 'btn btn-square btn-light btn-air-light btn-md',
+'role' => 'modal-remote',
+'title' => 'Lihat',
+'data-toggle' => 'tooltip'
+]);
+},
 "edit" => function ($url, $model, $key) {
 return Html::a('<i class="icofont icofont-pencil-alt-5"></i>', ['update', 'id' => $model->id], [
 'class' => 'btn btn-square btn-light btn-air-light btn-md',

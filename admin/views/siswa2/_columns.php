@@ -35,38 +35,46 @@ return Html::a('<i class="icofont icofont-plus-circle"></i>', ['view', 'id' => $
     // ],
     [
         'class'=>'\kartik\grid\DataColumn',
-         'label' => 'nis<i class="icofont icofont-sort-alt"></i>',
-         'attribute'=>'nis',
-         'vAlign' => 'middle',
-         'encodeLabel' => false,
+        'label' => 'nis<i class="icofont icofont-sort-alt"></i>',
+        'attribute'=>'nis',
+        'vAlign' => 'middle',
+        'encodeLabel' => false,
     ],
     [
         'class'=>'\kartik\grid\DataColumn',
-         'label' => 'nama<i class="icofont icofont-sort-alt"></i>',
-         'attribute'=>'nama',
-         'vAlign' => 'middle',
-         'encodeLabel' => false,
+        'label' => 'nama<i class="icofont icofont-sort-alt"></i>',
+        'attribute'=>'nama',
+        'vAlign' => 'middle',
+        'encodeLabel' => false,
     ],
     [
         'class'=>'\kartik\grid\DataColumn',
-         'label' => 'alamat<i class="icofont icofont-sort-alt"></i>',
-         'attribute'=>'alamat',
-         'vAlign' => 'middle',
-         'encodeLabel' => false,
+        'label' => 'alamat<i class="icofont icofont-sort-alt"></i>',
+        'attribute'=>'alamat',
+        'vAlign' => 'middle',
+        'encodeLabel' => false,
     ],
     [
         'class'=>'\kartik\grid\DataColumn',
-         'label' => 'id_user<i class="icofont icofont-sort-alt"></i>',
-         'attribute'=>'id_user',
-         'vAlign' => 'middle',
-         'encodeLabel' => false,
+        'label' => 'id_user<i class="icofont icofont-sort-alt"></i>',
+        'attribute'=>'id_user',
+        'vAlign' => 'middle',
+        'encodeLabel' => false,
     ],
 
 [
 'class' => 'kartik\grid\ActionColumn',
 'header' => '',
-'template' => '{edit} {delete}',
+'template' => '{btn_custom} {edit} {delete}',
 'buttons' => [
+"btn_custom" => function ($url, $model, $key) {
+return Html::a('<i class="far fa-images"></i>', ['view', 'id' => $model->id], [
+'class' => 'btn btn-square btn-light btn-air-light btn-md',
+'role' => 'modal-remote',
+'title' => 'Lihat',
+'data-toggle' => 'tooltip'
+]);
+},
 "edit" => function ($url, $model, $key) {
 return Html::a('<i class="icofont icofont-pencil-alt-5"></i>', ['update', 'id' => $model->id], [
 'class' => 'btn btn-square btn-light btn-air-light btn-md',
