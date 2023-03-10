@@ -13,13 +13,7 @@ class AppAsset extends AssetBundle
     public $baseUrl = '@web';
     public $css = [
         'css/site.css',
-        // 'css/myStyle.css',
-
-        'cube/images/favicon.png',
-        'cube/images/favicon.png',
-        //  Google font
-        'https://fonts.googleapis.com/css?family=Rubik:400,400i,500,500i,700,700i&amp;display=swap',
-        'https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900&amp;display=swap',
+        'css/myStyle.css',
         'assetsTemplate/css/font-awesome.css',
         'assetsTemplate/css/vendors/icofont.css',
         'assetsTemplate/css/vendors/themify.css',
