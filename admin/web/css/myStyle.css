@@ -133,3 +133,7 @@ th {
   background-color: #f5f5f5 !important;
   height: 68px !important;
 }
+
+.btn-primary {
+  background-color: #34a1da !important;
+}

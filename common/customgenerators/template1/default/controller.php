@@ -204,7 +204,7 @@ if($request->isAjax){
 Yii::$app->response->format = Response::FORMAT_JSON;
 if($request->isGet){
 return [
-'title'=> "Ubah Data <?= $modelClass ?> #".<?= $actionParams ?>,
+'title'=> "Ubah Data <?= $modelClass ?>",
 'content'=>$this->renderAjax('update', [
 'model' => $model,
 ]),

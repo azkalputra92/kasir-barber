@@ -162,7 +162,7 @@ if($request->isAjax){
 Yii::$app->response->format = Response::FORMAT_JSON;
 if($request->isGet){
 return [
-'title'=> "Update Siswa #".$id,
+'title'=> "Ubah Data Siswa",
 'content'=>$this->renderAjax('update', [
 'model' => $model,
 ]),
