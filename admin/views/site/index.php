@@ -91,7 +91,7 @@ ChartAsset::register($this);
                     </ul>
                     <div class="card-body">
                         <div class="course-widget">
-                            <div class="course-icon danger">
+                            <div class="course-icon primary">
                                 <svg class="fill-icon">
                                     <use href="../assetsTemplate/svg/icon-sprite.svg#clock"></use>
                                 </svg>

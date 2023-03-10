@@ -13083,10 +13083,34 @@ p.data-attributes svg {
 .course-widget .course-icon.warning {
   background: linear-gradient(297.08deg, #FF9E2A -4.53%, #FFA941 98.25%);
 }
+
+.course-widget .course-icon.info {
+  background: linear-gradient(297.08deg, #3ed1fa -4.53%, #06b0e0 98.25%);
+}
+
+.course-widget .course-icon.danger {
+  background: linear-gradient(297.08deg, #fd6a60 -4.53%, #fb1e10 98.25%);
+}
+
+.course-widget .course-icon.success {
+  background: linear-gradient(297.08deg, #70c568 -4.53%, #459f3c 98.25%);
+}
+
+.course-widget .course-icon.primary {
+  /* #988fff 0%, #4e3dff */
+  background: linear-gradient(297.08deg, #4e3dff -4.53%, #988fff 98.25%);
+}
+
+.course-widget .course-icon.light {
+  /* #988fff 0%, #4e3dff white 0%, #e0e0e0 */
+  background: linear-gradient(297.08deg, #e0e0e0 -4.53%, white 98.25%);
+}
+
 .course-widget .btn-light {
   background: var(--course-light-btn) !important;
   border: none;
 }
+
 .course-widget a {
   display: flex;
   align-items: center;
