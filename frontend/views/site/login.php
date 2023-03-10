@@ -8,7 +8,6 @@ use yii\bootstrap5\Html;
 use yii\bootstrap5\ActiveForm;
 
 $this->title = 'Login';
-$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="container-fluid p-0">
     <div class="row m-0">
@@ -26,35 +25,35 @@ $this->params['breadcrumbs'][] = $this->title;
                             </div>
                         </div> 
                     </div>
-                    <div class="login-main">
-                            <h4 class="text-center">Selamat Datang</h4>
-                            <p class="text-center">Gunakan ID Pengguna dan Sandi untuk masuk</p>
+                    <div class="login-main"> 
+                        <h4 class="text-center">Selamat Datang</h4>
+                        <p class="text-center">Gunakan ID Pengguna dan Sandi untuk masuk</p>
 
-                            <?php $form = ActiveForm::begin(['id' => 'login-form', 'class' => 'theme-form']); ?>
-                            <div class="form-group">
-                                <?= $form->field($model, 'username')->textInput(['autofocus' => true, 'placeholder' => 'Masukkan ID anda'])->label('ID Pengguna') ?>
-                            </div>
+                        <?php $form = ActiveForm::begin(['id' => 'login-form', 'class' => 'theme-form']); ?>
+                        <div class="form-group">
+                            <?= $form->field($model, 'username')->textInput(['autofocus' => true, 'placeholder' => 'Masukkan ID anda'])->label('ID Pengguna') ?>
+                        </div>
 
-                            <div class="form-group">
-                                <?= $form->field($model, 'password')->passwordInput()->label('Kata Sandi') ?>
-                            </div>
+                        <div class="form-group">
+                            <?= $form->field($model, 'password')->passwordInput()->label('Kata Sandi') ?>
+                        </div>
 
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <?= $form->field($model, 'rememberMe')->checkbox()->label('Ingat Saya') ?>
-                                    </div>
-                                    <div class="col-md-6 text-end">
-                                        <?= Html::a('Lupa Sandi?', ['site/request-password-reset']) ?>
-                                    </div>
-                                </div>     
-                                <?= Html::submitButton('Login', ['class' => 'btn btn-primary mt--2 btn-block w-100', 'name' => 'login-button']) ?>
-                            </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <?= $form->field($model, 'rememberMe')->checkbox()->label('Ingat Saya') ?>
+                                </div>
+                                <div class="col-md-6 text-end">
+                                    <?= Html::a('Lupa Sandi?', ['site/request-password-reset']) ?>
+                                </div>
+                            </div>     
+                            <?= Html::submitButton('Login', ['class' => 'btn btn-primary mt--2 btn-block w-100', 'name' => 'login-button']) ?>
+                        </div>
 
-                            <?php ActiveForm::end(); ?>
-                            <p class="mt-5 text-center mb-0">
-                                Belum memiliki Akun?<a class="ms-2" href="sign-up.html">Hubungi Admin</a>
-                            </p>
+                        <?php ActiveForm::end(); ?>
+                        <p class="mt-5 text-center mb-0">
+                            Belum memiliki Akun?<a class="ms-2" href="sign-up.html">Hubungi Admin</a>
+                        </p>
                     </div>
                 </div>
             </div>

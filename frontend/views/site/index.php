@@ -1,53 +1,145 @@
 <?php
 
-/** @var yii\web\View $this */
+use yii\bootstrap5\Html;
+use yii\bootstrap5\ActiveForm;
 
-$this->title = 'My Yii Application';
+$this->title = 'Profile';
+$this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="site-index">
+<div class="container-fluid">
+  <div class="user-profile">
+    <div class="row">
+      <!-- user profile first-style start-->
+      <div class="col-sm-12">
+        <div class="card hovercard text-center mt-4">
+          <div class="cardheader"></div>
+          <div class="user-image">
+            <div class="avatar"><img alt="" src="/frontend/web/images/logo-codinglab-2.png" data-intro="This is Profile image"></div>
+          </div>
 
-    <div class="jumbotron text-center bg-transparent">
-        <h1 class="display-4">Congratulations!</h1>
 
-        <p class="lead">You have successfully created your Yii-powered application.</p>
-
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
-    </div>
-
-    <div class="body-content">
-
-        <div class="row">
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-outline-secondary" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-outline-secondary" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-outline-secondary" href="http://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
-            </div>
         </div>
+        <br>
+        <div class="container ">
+          <div class="row d-flex justify-content-evenly">
+            <div class="col-sm-4">
 
+              <div class="card o-hidden">             
+                <div class="card-body balance-widget">
+
+                  <!-- <div class="bg-gradient">
+                    <svg class="site-resend-verification-email svg-fill">
+                      <use href="../assetsTemplate/svg/icon-sprite.svg#customers"></use>
+                    </svg>
+                  </div> -->
+
+                  <!-- <div class="card small-widget"> 
+                    <div class="card-body primary"> <span class="f-light">New Orders</span>
+                      <div class="d-flex align-items-end gap-1">
+                        <h4>2,435</h4><span class="font-primary f-12 f-w-500"><i class="icon-arrow-up"></i><span>+50%</span></span>
+                      </div>
+                      <div class="bg-gradient"> 
+                        <svg class="stroke-icon svg-fill">
+                          <use href="../assetsTemplate/svg/icon-sprite.svg#new-order"></use>
+                        </svg>
+                      </div>
+                    </div>
+                  </div> -->
+
+                  <h6 class="f-w-500 f-light">Keuangan Stok</h6>
+                  <h4 class="mb-3 mt-1 f-w-500 mb-0 f-22">
+                    <span class="f-light f-14 f-w-400 ms-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</span>
+                  </h4>
+                  <a class="text-dark" href="#">Menuju Aplikasi <i class="fas fa-arrow-right"></i></a>
+                </div>
+              </div>
+
+            </div>  
+            <div class="col-sm-4">
+
+              <div class="card o-hidden">             
+                <div class="card-body balance-widget">
+                  <h6 class="f-w-500 f-light">Keuangan Jasa</h6>
+                  <h4 class="mb-3 mt-1 f-w-500 mb-0 f-22">
+                    <span class="f-light f-14 f-w-400 ms-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</span>
+                  </h4>
+                  <a class="text-dark" href="#">Menuju Aplikasi <i class="fas fa-arrow-right"></i></a>
+                </div>
+              </div>
+
+            </div>  
+            <div class="col-sm-4">
+
+              <div class="card o-hidden">             
+                <div class="card-body balance-widget">
+                  <h6 class="f-w-500 f-light">Keuangan Manufaktur</h6>
+                  <h4 class="mb-3 mt-1 f-w-500 mb-0 f-22">
+                    <span class="f-light f-14 f-w-400 ms-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</span>
+                  </h4>
+                  <a class="text-dark" href="#">Menuju Aplikasi <i class="fas fa-arrow-right"></i></a>
+                </div>
+              </div>
+
+            </div>  
+          </div>
+
+          <div class="row d-flex justify-content-evenly">
+            <div class="col-sm-4">
+
+              <div class="card o-hidden">             
+                <div class="card-body balance-widget">
+                  <h6 class="f-w-500 f-light">Keuangan Stok</h6>
+                  <h4 class="mb-3 mt-1 f-w-500 mb-0 f-22">
+                    <span class="f-light f-14 f-w-400 ms-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</span>
+                  </h4>
+                  <a class="text-dark" href="#">Menuju Aplikasi <i class="fas fa-arrow-right"></i></a>
+                </div>
+              </div>
+
+            </div>  
+            <div class="col-sm-4">
+
+              <div class="card o-hidden">             
+                <div class="card-body balance-widget">
+                  <h6 class="f-w-500 f-light">Keuangan Jasa</h6>
+                  <h4 class="mb-3 mt-1 f-w-500 mb-0 f-22">
+                    <span class="f-light f-14 f-w-400 ms-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</span>
+                  </h4>
+                  <a class="text-dark" href="#">Menuju Aplikasi <i class="fas fa-arrow-right"></i></a>
+                </div>
+              </div>
+
+            </div>  
+            <div class="col-sm-4">
+
+              <div class="card o-hidden">             
+                <div class="card-body balance-widget">
+                  <h6 class="f-w-500 f-light">Keuangan Manufaktur</h6>
+                  <h4 class="mb-3 mt-1 f-w-500 mb-0 f-22">
+                    <span class="f-light f-14 f-w-400 ms-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</span>
+                  </h4>
+                  <a class="text-dark" href="#">Menuju Aplikasi <i class="fas fa-arrow-right"></i></a>
+                </div>
+              </div>
+
+            </div>  
+          </div>
+
+        </div>
+      </div>
+      <!-- user profile first-style end-->
     </div>
+  </div>
 </div>

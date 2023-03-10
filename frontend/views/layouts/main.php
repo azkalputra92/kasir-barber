@@ -27,7 +27,7 @@ AppAsset::register($this);
 <body class="d-flex flex-column h-100">
     <?php $this->beginBody() ?>
 
-    <main role="main" class="flex-shrink-0">
+    <main>
             <?= Alert::widget() ?>
             <?= $content ?>
     </main>
