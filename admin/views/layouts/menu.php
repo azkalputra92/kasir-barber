@@ -47,32 +47,7 @@
                 ['class' => 'sidebar-link']
             ) ?>
      </li>
-
-     <li class="sidebar-list">
-         <?= html::a(
-                '<svg class="stroke-icon">
-                                            <use href="../assetsTemplate/svg/icon-sprite.svg#stroke-widget"></use>
-                                        </svg>
-                                        <svg class="fill-icon">
-                                            <use href="../assetsTemplate/svg/icon-sprite.svg#fill-widget"></use>
-                                        </svg><span>Siswa Tema</span>',
-                ['/siswa2/index'],
-                ['class' => 'sidebar-link']
-            ) ?>
-     </li>
-     <li class="sidebar-list">
-         <?= html::a(
-                '<svg class="stroke-icon">
-                                            <use href="../assetsTemplate/svg/icon-sprite.svg#stroke-widget"></use>
-                                        </svg>
-                                        <svg class="fill-icon">
-                                            <use href="../assetsTemplate/svg/icon-sprite.svg#fill-widget"></use>
-                                        </svg><span>Client</span>',
-                ['/client/index'],
-                ['class' => 'sidebar-link']
-            ) ?>
-     </li>
-
+     
 
      <li class="sidebar-list">
 
